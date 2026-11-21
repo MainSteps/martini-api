@@ -1,0 +1,22 @@
+# Compilación
+target/
+*.class
+*.jar
+*.war
+
+# Base H2 en archivo (se crea al arrancar)
+data/
+
+# IDE
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+*.swp
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
