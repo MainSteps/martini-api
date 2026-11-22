@@ -51,7 +51,7 @@ class SolicitudServiceTest {
     void listarSinFiltroDevuelveTodasOrdenadas() {
         when(repositorio.findAllByOrderByCreadaEnDesc()).thenReturn(List.of(guardada));
 
-        List<Solicitud> resultado = servicio.listar(null);
+        List<Solicitud> resultado = servicio.listar(null, null);
 
         assertThat(resultado).containsExactly(guardada);
         verify(repositorio).findAllByOrderByCreadaEnDesc();
@@ -61,7 +61,7 @@ class SolicitudServiceTest {
     void listarConDivisionFiltraPorDivision() {
         when(repositorio.findByDivisionOrderByCreadaEnDesc(Division.GELATERIA)).thenReturn(List.of());
 
-        List<Solicitud> resultado = servicio.listar(Division.GELATERIA);
+        List<Solicitud> resultado = servicio.listar(Division.GELATERIA, null);
 
         assertThat(resultado).isEmpty();
         verify(repositorio).findByDivisionOrderByCreadaEnDesc(Division.GELATERIA);

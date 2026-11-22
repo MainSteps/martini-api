@@ -33,8 +33,10 @@ public class SolicitudController {
     }
 
     @GetMapping
-    public List<Solicitud> listar(@RequestParam(required = false) Division division) {
-        return servicio.listar(division);
+    public List<Solicitud> listar(
+            @RequestParam(required = false) Division division,
+            @RequestParam(required = false) String telefono) {
+        return servicio.listar(division, telefono);
     }
 
     @GetMapping("/{id}")

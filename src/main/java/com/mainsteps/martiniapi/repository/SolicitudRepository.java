@@ -16,4 +16,6 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Long> {
     List<Solicitud> findAllByOrderByCreadaEnDesc();
 
     List<Solicitud> findByDivisionOrderByCreadaEnDesc(Division division);
+
+    List<Solicitud> findByTelefonoOrderByCreadaEnDesc(String telefono);
 }

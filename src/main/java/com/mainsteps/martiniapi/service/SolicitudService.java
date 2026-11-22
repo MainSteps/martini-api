@@ -24,7 +24,10 @@ public class SolicitudService {
     }
 
     @Transactional(readOnly = true)
-    public List<Solicitud> listar(Division division) {
+    public List<Solicitud> listar(Division division, String telefono) {
+        if (telefono != null && !telefono.isBlank()) {
+            return repositorio.findByTelefonoOrderByCreadaEnDesc(telefono.trim());
+        }
         if (division == null) {
             return repositorio.findAllByOrderByCreadaEnDesc();
         }
